@@ -1,0 +1,11 @@
+vcd_url      = "https://vcd.example.com/api"
+vcd_org      = "System"
+
+vcd_user     = "YOUR_VCD_USERNAME"
+vcd_password = "YOUR_VCD_PASSWORD"
+
+tenant_name = "demo"
+
+network_prefix_length = 28
+
+vm_flavor = 1
