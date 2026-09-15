@@ -2,30 +2,32 @@
 .terraform/
 *.tfstate
 *.tfstate.*
-*.tfstate.backup
 *.tfplan
-
-# Terraform variables / secrets
-terraform.tfvars
-*.auto.tfvars
-*.auto.tfvars.json
-
-# Terraform CLI config
-terraform.rc
-.terraformrc
-
-# Crash logs
+*.tfplan.json
 crash.log
 crash.*.log
 
-# Environment / secrets
-.env
-.env.*
+# Terraform variable files
+terraform.tfvars
+terraform.tfvars.json
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Local Terraform CLI configuration
+.terraformrc
+terraform.rc
+
+# Secrets / credentials
 *.pem
 *.key
+*.crt
+*.p12
+*.pfx
+.env
+.env.*
 
-# OS / Editor
-.DS_Store
-Thumbs.db
+# IDE / OS
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db
