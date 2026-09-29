@@ -117,11 +117,6 @@ Organization
 
 ---
 
-### Example Request
-# 🎥 Demo
-
-https://youtu.be/_IopcbK-_tk?si=ZUozagXIsSdsiZfO
-
 ```text
 ┌─────────────────────────────────────┐
 │        Self-Service Request         │
@@ -214,6 +209,11 @@ terraform-vcd-self-service-iaas/
 | `.terraform.lock.hcl` | Provider version and checksum lock information |
 | `.gitignore` | Prevents secrets and local files from being committed |
 
+---
+### Example Request
+# 🎥 Demo
+
+https://youtu.be/_IopcbK-_tk?si=ZUozagXIsSdsiZfO
 ---
 
 # 🚀 Getting Started
