@@ -209,7 +209,10 @@ The complete workflow is:
          │
          ▼
 ┌─────────────────┐
-│ NSX-T Edge GW   │
+│ NSX-T
+  Edge GW
+│ Provider / External  │
+│       Network    │
 └────────┬────────┘
          │
          ▼
