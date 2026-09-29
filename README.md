@@ -148,75 +148,6 @@ The project currently provides three predefined VM resource profiles.
 
 The requester selects a predefined flavor instead of directly modifying the underlying infrastructure configuration.
 
-This provides a controlled and repeatable resource allocation model.
-
----
-
-
-
-### 1️⃣ Organization Provisioning
-
-Terraform creates a dedicated VMware Cloud Director Organization using the requested tenant name.
-
-Example:
-
-```text
-Tenant Request
-      │
-      ▼
-tenant_name = demo
-      │
-      ▼
-Organization
-      │
-      ▼
-demo
-```
-
----
-
-### 2️⃣ Organization VDC
-
-An Organization VDC is created and associated with the configured:
-
-- Provider VDC
-- Network Pool
-- Storage Policy
-- Compute Capacity
-
-The Organization VDC provides the resource boundary for the tenant environment.
-
----
-
-### 3️⃣ 🌐 Network Provisioning
-
-The tenant networking workflow consists of:
-
-```text
-NSX-T Edge Gateway
-        │
-        ▼
-    IP Prefix
-        │
-        ▼
-  Routed Network
-        │
-        ▼
-      VM NIC
-```
-
-The network prefix is selected by the requester.
-
-Example:
-
-```hcl
-network_prefix_length = 28
-```
-
-This results in a tenant `/28` network allocation.
-
----
-
 # 🧰 Technologies & Tools
 
 | Technology | Purpose |
@@ -228,7 +159,6 @@ This results in a tenant `/28` network allocation.
 | HCL | Infrastructure configuration |
 
 ---
-
 
 ## ☁️ VMware Cloud Director Requirements
 
@@ -247,7 +177,6 @@ Environment-specific resource names are configured in:
 ```text
 locals.tf
 ```
-
 ---
 
 # 📁 Project Structure
@@ -290,22 +219,16 @@ terraform-vcd-self-service-iaas/
 # 🚀 Getting Started
 
 ## 1️⃣ Clone the Repository
-
 ```bash
 git clone https://github.com/zohreroyat/terraform-vcd-self-service-iaas.git
 cd terraform-vcd-self-service-iaas
 ```
-
 ---
-
 ## 2️⃣ Prepare Terraform Variables
-
 Create a local variables file from the example:
-
 ```bash
 cp terraform.tfvars.example terraform.tfvars
 ```
-
 Edit:
 
 ```text
@@ -324,11 +247,7 @@ tenant_name           = "demo"
 network_prefix_length = 28
 vm_flavor             = 1
 ```
-
-> ⚠️ **Never commit the real `terraform.tfvars` file to GitHub.**
-
 ---
-
 ## 3️⃣ 🚀 Deploy the Environment
 
 ```bash
