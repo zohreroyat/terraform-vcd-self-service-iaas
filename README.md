@@ -69,7 +69,7 @@ The overall provisioning workflow is:
               │                 │                  │
               │                 ▼                  │
               │  ┌──────────────────────────────┐  │
-              │  │        Routed Network        │  │
+              │  │   IP Prefix / Routed Network │  │
               │  └──────────────┬───────────────┘  │
               │                 │                  │
               │                 ▼                  │
