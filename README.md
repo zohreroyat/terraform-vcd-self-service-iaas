@@ -148,20 +148,6 @@ Organization
 
 ---
 
-## 🧑‍💻 Self-Service Request
-
-The request is intentionally kept simple.
-
-The requester does **not** need to know the underlying VMware Cloud Director infrastructure configuration.
-
-### Required Inputs
-
-```text
-tenant_name
-network_prefix_length
-vm_flavor
-```
-
 ### Example Request
 # 🎥 Demo
 
