@@ -312,42 +312,6 @@ This results in a tenant `/28` network allocation.
 
 ---
 
-### 4️⃣ 🖥️ Workload Provisioning
-
-Terraform creates a vApp and deploys the initial VM from the configured Cloud Director catalog template.
-
-The VM is automatically connected to the tenant routed network.
-
-The VM name follows the tenant naming convention:
-
-```text
-<tenant_name>-vm-1
-```
-
-Example:
-
-```text
-demo-vm-1
-```
-
----
-
-### 5️⃣ 💾 Storage Provisioning
-
-An additional VM disk is created based on the selected VM flavor.
-
-Example:
-
-```text
-Flavor 1
-   │
-   ├── 4 vCPU
-   ├── 8 GB RAM
-   └── 10 GB Additional Disk
-```
-
----
-
 # 🧰 Technologies & Tools
 
 | Technology | Purpose |
@@ -360,15 +324,6 @@ Flavor 1
 
 ---
 
-# 📋 Requirements
-
-Before running the project, the target VMware Cloud Director environment should already have the required infrastructure components configured.
-
-## 💻 Software Requirements
-
-- Terraform
-- VMware Cloud Director Terraform Provider `3.14+`
-- Access to VMware Cloud Director API
 
 ## ☁️ VMware Cloud Director Requirements
 
@@ -527,102 +482,6 @@ terraform apply -auto-approve
 
 ---
 
-# 📤 Terraform Outputs
-
-After deployment:
-
-```bash
-terraform output
-```
-
-The project exposes information such as:
-
-```text
-Organization Name
-Organization VDC Name
-VM Name
-VM IP Address
-```
-
----
-
-# 🔐 Security Considerations
-
-Security is an important part of Infrastructure as Code projects.
-
-The following files should **never** be committed to a public repository:
-
-```text
-terraform.tfvars
-*.tfstate
-*.tfstate.*
-*.tfplan
-.env
-*.pem
-*.key
-```
-
-The repository `.gitignore` is configured to exclude these types of files.
-
-### ❌ Never Commit
-
-```text
-Passwords
-API Tokens
-Private Keys
-Certificates
-Terraform State
-Credentials
-```
-
-### ✅ Recommended Approach
-
-Use environment variables or a secure secret management solution for credentials in production environments.
-
----
-
-# 🔒 TLS / SSL
-
-The provider configuration may contain:
-
-```hcl
-allow_unverified_ssl = true
-```
-
-This is intended for controlled lab or demonstration environments where the Terraform host does not trust the VMware Cloud Director certificate.
-
-For production environments:
-
-```text
-Use trusted TLS certificates
-        │
-        ▼
-Enable certificate validation
-        │
-        ▼
-Avoid allow_unverified_ssl
-```
-
----
-
-# 🗄️ Terraform State
-
-Terraform state is required to track managed resources.
-
-For development and demonstration purposes, local state can be used.
-
-For production environments, a secure remote backend is recommended.
-
-Examples include:
-
-- S3-compatible backend
-- Terraform Cloud
-- Terraform Enterprise
-- Secure object storage
-
-Terraform state should **never** be committed to GitHub.
-
----
 
 # 🏢 Multi-Tenant Design
 
@@ -658,86 +517,6 @@ Each tenant can have its own:
 - Network
 - Edge Gateway
 - Workloads
-
----
-
-# 🧩 Configuration Model
-
-The project separates:
-
-### 👤 User Inputs
-
-```text
-tenant_name
-network_prefix_length
-vm_flavor
-```
-
-from:
-
-### 🏗️ Infrastructure Configuration
-
-```text
-Provider VDC
-Network Pool
-Storage Policy
-External Network
-IP Space
-Catalog
-VM Template
-```
-
-This separation keeps the self-service request simple while keeping infrastructure-specific settings under administrator control.
-
----
-
-# 🎯 Design Goals
-
-The project focuses on the following principles.
-
-### ⚡ Automation
-
-Reduce repetitive manual provisioning tasks.
-
-### 🔁 Repeatability
-
-Create environments using a consistent Terraform workflow.
-
-### 🧱 Isolation
-
-Maintain tenant separation using VMware Cloud Director Organizations and Organization VDCs.
-
-### 🌐 Network Automation
-
-Automate tenant network creation using NSX-T-backed networking.
-
-### 🛠️ Infrastructure as Code
-
-Keep infrastructure configuration version-controlled and reproducible.
-
-### 👤 Self-Service
-
-Expose only the parameters required by the requester instead of infrastructure-level configuration.
-
----
-
-# 📌 Current Scope
-
-The current implementation includes:
-
-- ✅ Tenant Organization provisioning
-- ✅ Organization VDC provisioning
-- ✅ NSX-T Edge Gateway provisioning
-- ✅ Tenant IP Prefix allocation
-- ✅ Routed Network provisioning
-- ✅ vApp provisioning
-- ✅ Initial VM deployment
-- ✅ VM flavor selection
-- ✅ Additional VM disk provisioning
-- ✅ Terraform-based automation
-- ✅ Input validation
-
----
 
 # 🔮 Future Improvements
 
@@ -843,18 +622,6 @@ vm_flavor             = 1
               │   8 GB RAM    │
               │   10 GB Disk  │
               └───────────────┘
-```
-
----
-
-# 📚 References
-
-- VMware Cloud Director
-- VMware NSX-T
-- Terraform
-- VMware Cloud Director Terraform Provider
-- Infrastructure as Code
-
 ---
 
 # 🔗 Repository
@@ -864,20 +631,6 @@ vm_flavor             = 1
 https://github.com/zohreroyat/terraform-vcd-self-service-iaas
 
 ---
-
-# 📄 Disclaimer
-
-This repository is a technical demonstration and reference implementation.
-
-Environment-specific values such as:
-
-- Provider VDC
-- Network Pool
-- Storage Policy
-- External Network
-- IP Space
-- Catalog
-- VM Template
 
 must be adapted to the target VMware Cloud Director environment.
 
