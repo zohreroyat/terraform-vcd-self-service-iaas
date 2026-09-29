@@ -163,7 +163,7 @@ vm_flavor
 ```
 
 ### Example Request
-
+# 🎥 Demo
 ```text
 ┌─────────────────────────────────────┐
 │        Self-Service Request         │
@@ -540,96 +540,6 @@ The project can be extended with additional capabilities:
 │ • VMware Automation Integration     │
 └─────────────────────────────────────┘
 ```
-
----
-
-# 🎥 Demo
-
-A technical demonstration can show the complete provisioning workflow:
-
-```text
-User Request
-     │
-     ▼
-Terraform Plan
-     │
-     ▼
-Terraform Apply
-     │
-     ▼
-Cloud Director Organization
-     │
-     ▼
-Organization VDC
-     │
-     ▼
-NSX-T Network
-     │
-     ▼
-vApp
-     │
-     ▼
-VM
-     │
-     ▼
-Final IaaS Environment
-```
-
----
-
-# 📊 Example
-
-## Input
-
-```hcl
-tenant_name           = "demo"
-network_prefix_length = 28
-vm_flavor             = 1
-```
-
-## Result
-
-```text
-                    demo
-                     │
-                     ▼
-              ┌───────────────┐
-              │ Organization  │
-              │     demo      │
-              └───────┬───────┘
-                      │
-                      ▼
-              ┌───────────────┐
-              │    demo-vdc   │
-              └───────┬───────┘
-                      │
-                      ▼
-              ┌───────────────┐
-              │   demo-edge   │
-              └───────┬───────┘
-                      │
-                      ▼
-              ┌───────────────┐
-              │ demo-routed-  │
-              │     net       │
-              └───────┬───────┘
-                      │
-                      ▼
-              ┌───────────────┐
-              │   demo-vm-1   │
-              │               │
-              │   4 vCPU      │
-              │   8 GB RAM    │
-              │   10 GB Disk  │
-              └───────────────┘
----
-
-# 🔗 Repository
-
-**GitHub Repository:**
-
-https://github.com/zohreroyat/terraform-vcd-self-service-iaas
-
 ---
 
 must be adapted to the target VMware Cloud Director environment.
