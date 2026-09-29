@@ -303,7 +303,9 @@ The project can be extended with additional capabilities:
 ┌─────────────────────────────────────┐
 │         Future Improvements         │
 ├─────────────────────────────────────┤
-│ • Remote Terraform Backend          │
+│ • Remove Hardcoded Values           │
+│ • Improve VM Flavor Configuration   | 
+| • Remote Terraform Backend          │
 │ • Public IP Automation              │
 │ • Additional VM Flavors             │
 │ • Additional Storage Profiles       │
