@@ -164,6 +164,9 @@ vm_flavor
 
 ### Example Request
 # 🎥 Demo
+
+https://youtu.be/_IopcbK-_tk?si=ZUozagXIsSdsiZfO
+
 ```text
 ┌─────────────────────────────────────┐
 │        Self-Service Request         │
