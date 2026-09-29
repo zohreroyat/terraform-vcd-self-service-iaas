@@ -427,64 +427,17 @@ vm_flavor             = 1
 
 ---
 
-## 3️⃣ Initialize Terraform
+## 3️⃣ 🚀 Deploy the Environment
 
 ```bash
 terraform init
-```
-
-Terraform initializes the working directory and the required provider.
-
----
-
-## 4️⃣ Format the Configuration
-
-```bash
-terraform fmt
-```
-
----
-
-## 5️⃣ Validate the Configuration
-
-```bash
 terraform validate
-```
-
-Expected result:
-
-```text
-Success! The configuration is valid.
-```
-
----
-
-## 6️⃣ 🔍 Review the Terraform Plan
-
-```bash
 terraform plan
-```
-
-Review the resources that Terraform intends to create before applying the configuration.
-
----
-
-## 7️⃣ 🚀 Deploy the Environment
-
-Run:
-
-```bash
 terraform apply
-```
-
-Or for automated execution:
-
-```bash
+or
 terraform apply -auto-approve
+
 ```
-
----
-
 
 # 🏢 Multi-Tenant Design
 
