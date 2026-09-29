@@ -152,65 +152,7 @@ This provides a controlled and repeatable resource allocation model.
 
 ---
 
-## 🔄 Provisioning Workflow
 
-The complete workflow is:
-
-```text
-┌─────────────────┐
-│  Tenant Request │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│    Terraform    │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  Organization   │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│ Organization VDC│
-└────────┬────────┘
-         │
-         ▼
-┌──────────────────── ─┐
-│       NSX-T          │
-│         │            │
-          ▼             
-│       Edge GW        │ 
-│ {Provider / External │
-│       Network }      │
-└────────┬─────────────┘
-         │
-         ▼
-┌─────────────────┐
-│    IP Prefix    │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│ Routed Network  │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│      vApp       │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│       VM        │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│ Additional Disk │
-└─────────────────┘
-```
 
 ### 1️⃣ Organization Provisioning
 
